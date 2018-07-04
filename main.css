@@ -29,40 +29,48 @@ header {
   padding: .15em;
 }
 
+.min-max-form {
+  display: block;
+  margin: 0em auto;
+  width: 21.5em;
+}
+
 .minmax-number {
-  display: inline-block;
   color: #e6e7e8;
-  font-size: 1.5em;
+  font-size: .75em;
   font-weight: 300;
   margin: 35px auto 10px;
   padding: 0.25em 0.5em 0.25em 0.4em;
-  width: 14.5em;
+  width: 10.5em;
 }
 
 .min-number {
-
+  margin: 1em 2em 2em 1em;
 }
 
 .max-number {
-
+  margin: 2em 1em 1em 0;
 }
 
-.min-max-submit {
+.min-max-submit-section {
   display: block;
-  margin: 1.25em auto 2em;
-  width: 25em;
-  font-size: 1em;
-  height: 1.75em;
-  width: 26em;
+  margin: 0 auto 5em;
+  font-size: .75em;
+  height: 0.75em;
+  width: 27em;
 }
 
-
+.min-max-submit-button {
+  padding: .25em 7em .25em 7em;
+  /*width: 12em;*/
+}
+ 
 .enter-your-guess {
   display: block;
   color: #e6e7e8;
   font-size: 1.5em;
   font-weight: 300;
-  margin: 35px auto 10px;
+  margin: 0 auto .25em;
   padding: 0.25em 0.5em 0.25em 0.4em;
   width: 14.5em;
 }
@@ -126,7 +134,7 @@ header {
   color: #404041;
   display: block;
   font-size: 2em;
-  margin: auto;
+  /*margin: auto;*/
  /* padding: 0em 1em 1em 1.75em;
   width: 7.5em;*/
   text-align: center;

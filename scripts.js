@@ -3,7 +3,7 @@
 // =====================================================
 var minNumber = document.querySelector('.min-number')
 var maxNumber = document.querySelector('.max-number')
-var minMaxSubmit = document.querySelector('.min-max-submit')
+var minMaxSubmit = document.querySelector('.min-max-submit-button')
 var guessInput = document.querySelector('.enter-your-guess')
 var guessButton = document.querySelector('.guess')
 var clearButton = document.querySelector('.clear')
@@ -17,6 +17,10 @@ var resultRandomNumber = getRandomNumber(1, 100);
 // EVENT LISTENERS
 // =====================================================
 
+maxNumber.addEventListener('keyup', function() {
+  minMaxSubmit.disabled = false;
+   clearButton.disabled = false;
+})
 
 minMaxSubmit.addEventListener('click', function(e){
   e.preventDefault();
@@ -24,17 +28,18 @@ minMaxSubmit.addEventListener('click', function(e){
   console.log(minNumber.value, maxNumber.value)
 })
 
-
-guessInput.addEventListener('keyup', buttonEnable)
+guessInput.addEventListener('keyup', function() {
+  guessButton.disabled = false;
+})
 
 guessButton.addEventListener('click', function(e){
   e.preventDefault();
   checkRange(parseInt(guessInput.value), 1, 100);
   inputForm.reset();
+  resetButton.disabled = false;
 })
 
 clearButton.addEventListener('click' ,clearInput)
-
 resetButton.addEventListener('click', resetGame)
 
 
@@ -44,6 +49,18 @@ resetButton.addEventListener('click', resetGame)
 
 function getRandomNumber(minNum, maxNum) {
   return parseInt(Math.floor(Math.random() * (maxNum - minNum)) + minNum);
+}
+
+function checkRange(guess, minNum, maxNum) {
+  if (isNaN(guess)){
+    outPutMessage.innerText = `Sorry, that is not a number.`
+  } else if (guess < minNum || guess > maxNum) {
+    outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
+  // } else if (guess > maxNum) {
+  //   outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
+  } else {
+    checkGuess();
+  }
 }
 
 function checkGuess() {
@@ -59,25 +76,14 @@ function checkGuess() {
     console.log(guessInput.value, resultRandomNumber)
 }
 
-function checkRange(guess, minNum, maxNum) {
-  if (isNaN(guess)){
-    outPutMessage.innerText = `Sorry, that is not a number.`
-  } else if (guess < minNum || guess > maxNum) {
-    outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
-  // } else if (guess > maxNum) {
-  //   outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
-  } else {
-    checkGuess();
-  }
-}
 
-function buttonEnable() {
-  minMaxSubmit.disabled = false;
-  guessButton.disabled = false;
-  clearButton.disabled = false;
-  resetButton.disabled = false;
+// function buttonEnable() {
+//   // minMaxSubmit.disabled = false;
+//   // guessButton.disabled = false;
+//   clearButton.disabled = false;
+//   resetButton.disabled = false;
 
-}
+// }
 
 function clearInput(e) {
   e.preventDefault();
