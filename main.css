@@ -30,7 +30,7 @@ header {
 }
 
 .minmax-number {
-  display: block;
+  display: inline-block;
   color: #e6e7e8;
   font-size: 1.5em;
   font-weight: 300;
@@ -40,11 +40,11 @@ header {
 }
 
 .min-number {
-  
+
 }
 
 .max-number {
-  
+
 }
 
 .min-max-submit {

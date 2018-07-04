@@ -22,7 +22,6 @@ minMaxSubmit.addEventListener('click', function(e){
   e.preventDefault();
   resultRandomNumber = getRandomNumber(parseInt(minNumber.value), parseInt(maxNumber.value))
   console.log(minNumber.value, maxNumber.value)
-
 })
 
 
