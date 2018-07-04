@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser 2</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <section class='title'><span class='number'>Number</span><span class='guesser'>Guesser</span></section>
+  </header>
+<main>
+  <form class='min-max-form'>
+    <input class='minmax-number min-number'  placeholder='Minimum Guess'> 
+    <input class='minmax-number max-number' placeholder='Maximum Guess'>
+    <button disabled="" class='min-max-submit button' name=Submit>Submit</button>
+  </form>
+  <form class='input-form'>
+    <input class='enter-your-guess' type='number' placeholder="Enter Your Guess" min=1 max=100>
+    <section class='input-buttons'>
+      <button disabled class='guess guess-clear button' name=Guess>Guess</button>
+      <button disabled class='clear guess-clear button' name=Clear>Clear</button>
+    </section>
+  </form>
+  <p class='last-guess'>Your last guess was:</p>
+  <p class='output-number'>--</p>
+  <p class='output-message'></p>  
+  <section class='reset-button'>
+    <button disabled="true" class='reset button' name=Reset>Reset</button>
+  </section>
+</main>
+<script src='scripts.js'></script>
+</body>
+</html>

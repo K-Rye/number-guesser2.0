@@ -1,0 +1,145 @@
+body {
+  border: 7px solid #929497;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  background-color: #404041;
+}
+
+.title {
+  display: block;
+  margin: auto;
+  padding: 1em 1em;
+  width: 24em;
+}
+
+.number {
+  color: #ed458b;
+  font-weight: 700;
+  font-size: 3em;
+  letter-spacing: 
+  padding: .15em;
+}
+
+.guesser {
+  color: #e6e7e8;
+  font-weight: 300;
+  font-size: 3em;
+  padding: .15em;
+}
+
+.minmax-number {
+  display: block;
+  color: #e6e7e8;
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 35px auto 10px;
+  padding: 0.25em 0.5em 0.25em 0.4em;
+  width: 14.5em;
+}
+
+.min-number {
+  
+}
+
+.max-number {
+  
+}
+
+.min-max-submit {
+  display: block;
+  margin: 1.25em auto 2em;
+  width: 25em;
+  font-size: 1em;
+  height: 1.75em;
+  width: 26em;
+}
+
+
+.enter-your-guess {
+  display: block;
+  color: #e6e7e8;
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 35px auto 10px;
+  padding: 0.25em 0.5em 0.25em 0.4em;
+  width: 14.5em;
+}
+
+.input-buttons {
+  display: block;
+  margin: auto;
+  width: 26.5em;
+  padding: 1em .5em 2em 1em;
+}
+
+.button {
+  background-color: #929497;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.button:disabled {
+  background-color: #d0d2d3;
+  color: #FFFFFF;
+}
+
+.button:hover {
+  background-color: #eb008b;
+  color: #FFFFFF;
+}
+
+.guess-clear {
+  height: 1.5em;
+  width: 7em;
+}
+
+.guess {
+  margin: .5em .80em;
+}
+
+.clear {
+  margin: .5em .85em;
+}
+
+.last-guess {
+  color: #404041;
+  display: block;
+  font-size: 1.5em;
+  margin: auto;
+  width: 9em;
+}
+
+.output-number {
+  color: #ed458b;
+  display: block;
+  font-size: 13em;
+  line-height: 1em;
+  margin: auto;
+  text-align: center; 
+}
+
+.output-message {
+  color: #404041;
+  display: block;
+  font-size: 2em;
+  margin: auto;
+ /* padding: 0em 1em 1em 1.75em;
+  width: 7.5em;*/
+  text-align: center;
+}
+
+.reset-button {
+  display: block;
+  margin: 1.25em auto 2em;
+  width: 25em;
+}
+
+.reset {
+  font-size: 1em;
+  height: 1.75em;
+  width: 26em;
+}
