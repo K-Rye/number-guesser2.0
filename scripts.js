@@ -1,51 +1,52 @@
-// =====================================================
-// GLOBAL VARIABLES
-// =====================================================
+
 var minNumber = document.querySelector('.min-number')
 var maxNumber = document.querySelector('.max-number')
 var minMaxSubmit = document.querySelector('.min-max-submit-button')
 var guessInput = document.querySelector('.enter-your-guess')
 var guessButton = document.querySelector('.guess')
 var clearButton = document.querySelector('.clear')
-var resetButton = document.querySelector('.reset')
 var inputForm = document.querySelector('.input-form')
-var playerGuess = document.querySelector('.output-number')
+var playerGuess = document.querySelector('#output-number')
+var wrongGuess = document.querySelector('.wrong-number')
 var outPutMessage = document.querySelector('.output-message')
+var resetButton = document.querySelector('.reset')
 var resultRandomNumber = getRandomNumber(1, 100);
+var bonusRoundResultNumber = getBonusRoundNumber();
 
-// =====================================================
-// EVENT LISTENERS
-// =====================================================
 
 maxNumber.addEventListener('keyup', function() {
   minMaxSubmit.disabled = false;
-   clearButton.disabled = false;
 })
 
 minMaxSubmit.addEventListener('click', function(e){
   e.preventDefault();
   resultRandomNumber = getRandomNumber(parseInt(minNumber.value), parseInt(maxNumber.value))
   console.log(minNumber.value, maxNumber.value)
+  minMaxSubmit.disabled = true;
+  guessInput.disabled = false;
 })
 
-guessInput.addEventListener('keyup', function() {
+guessInput.addEventListener('keyup', function(e) {
+  clearButton.disabled = false;
   guessButton.disabled = false;
-})
+});
 
 guessButton.addEventListener('click', function(e){
   e.preventDefault();
-  checkRange(parseInt(guessInput.value), 1, 100);
-  inputForm.reset();
-  resetButton.disabled = false;
-})
+  checkRange(parseInt(guessInput.value), minNumber.value, maxNumber.value);
+  if (guessInput > minNumber.value || guessInput < minNumber.value ) {
+      clearButton.disabled = false;
+      guessButton.disabled = true;
+  } else {
+      guessButton.disabled = false;
+      resetButton.disabled = false;
+      inputForm.reset();
+  }
+});
 
 clearButton.addEventListener('click' ,clearInput)
 resetButton.addEventListener('click', resetGame)
 
-
-// =====================================================
-// FUNCTIONS
-// =====================================================
 
 function getRandomNumber(minNum, maxNum) {
   return parseInt(Math.floor(Math.random() * (maxNum - minNum)) + minNum);
@@ -53,11 +54,13 @@ function getRandomNumber(minNum, maxNum) {
 
 function checkRange(guess, minNum, maxNum) {
   if (isNaN(guess)){
-    outPutMessage.innerText = `Sorry, that is not a number.`
-  } else if (guess < minNum || guess > maxNum) {
+    playerGuess.innerText = 'NaN';
+  } else if (guess < minNumber.value) {
+    wrongGuess.innerText = guessInput.value;
     outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
-  // } else if (guess > maxNum) {
-  //   outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
+  } else if (guess > maxNumber.value) {
+    wrongGuess.innerText = guessInput.value;
+    outPutMessage.innerText = `Please choose a number between ${minNum} and ${maxNum}`
   } else {
     checkGuess();
   }
@@ -70,26 +73,42 @@ function checkGuess() {
   } else if (guessInput.value < resultRandomNumber){
     outPutMessage.innerText = 'That is too low';
   } else {
-    outPutMessage.innerText = 'BOOM!';
-
+    playerGuess.innerText = 'BOOM!';
+    outPutMessage.innerText = 'You Win!';
+    bonusRound();
   }
     console.log(guessInput.value, resultRandomNumber)
 }
 
+function getBonusRoundNumber(minNum, maxNum) {
+  return parseInt(Math.floor(Math.random() * (maxNum +10 - minNum -10)) + minNum);
+}
 
-// function buttonEnable() {
-//   // minMaxSubmit.disabled = false;
-//   // guessButton.disabled = false;
-//   clearButton.disabled = false;
-//   resetButton.disabled = false;
+function bonusRound(minNum, maxNum) {
+  // parseInt(Math.floor(Math.random() * (maxNum +10 - minNum -10)) + minNum);
+  console.log(minNum, maxNum);
+  minMaxSubmit.disabled = true;
+  guessInput.disabled = false;
+  resetButton.disabled = false;
+  outPutMessage.innerHTML = `YOU WIN! <p>BONUS ROUND!</p><p><em>Guess Again between ${minNum} and ${maxNum}</em></p>`;
+  console.log(bonusRoundResultNumber)
+} 
 
+//   getRandomNumber(minNum -10, maxNum +10);
+//   resultRandomNumber = getRandomNumber(parseInt(minNumber.value), parseInt(maxNumber.value))
+//   console.log(minNumber.value -10, maxNumber.value +10)
 // }
+
+
+function buttonDisable(e) {
+  clearButton.disabled = true;
+  resetButton.disabled =true;
+}
 
 function clearInput(e) {
   e.preventDefault();
   guessInput.value = '';
-  minNumber.value = '';
-  maxNumber.value = '';
+  buttonDisable();
 }
 
 function resetGame() {

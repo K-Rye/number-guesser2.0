@@ -11,22 +11,22 @@
   </header>
 <main>
   <form class='min-max-form'>
-    <input class='minmax-number min-number'  placeholder='Minimum Guess'> 
-    <input class='minmax-number max-number' placeholder='Maximum Guess'>
+    <input class='minmax-number min-number' type='number' min=1 max=100  placeholder='Minimum Guess'> 
+    <input class='minmax-number max-number' type='number' min=1 max=100 placeholder='Maximum Guess'>
   </form>
   <section class='min-max-submit-section'>
     <button disabled class='min-max-submit-button button' name=Submit>Submit</button>
   </section>
   <form class='input-form'>
-    <input class='enter-your-guess' type='number' placeholder="Enter Your Guess" min=1 max=100>
+    <input disabled class='enter-your-guess' placeholder="Enter Your Guess" min='1' max='100'>
     <section class='input-buttons'>
       <button disabled class='guess guess-clear button' name=Guess>Guess</button>
       <button disabled class='clear guess-clear button' name=Clear>Clear</button>
     </section>
   </form>
   <p class='last-guess'>Your last guess was:</p>
-  <p class='output-number'>--</p>
-  <p class='output-message'></p>  
+  <p id='output-number' class='wrong-number'>--</p>
+  <p class='output-message '></p>  
   <section class='reset-button'>
     <button disabled="true" class='reset button' name=Reset>Reset</button>
   </section>

@@ -32,7 +32,7 @@ header {
 .min-max-form {
   display: block;
   margin: 0em auto;
-  width: 21.5em;
+  width: 25em;
 }
 
 .minmax-number {
@@ -40,12 +40,12 @@ header {
   font-size: .75em;
   font-weight: 300;
   margin: 35px auto 10px;
-  padding: 0.25em 0.5em 0.25em 0.4em;
+  padding: 0.25em 2.5em 0.25em .5em;
   width: 10.5em;
 }
 
 .min-number {
-  margin: 1em 2em 2em 1em;
+  margin: 1em 3em 2em 1em;
 }
 
 .max-number {
@@ -57,11 +57,11 @@ header {
   margin: 0 auto 5em;
   font-size: .75em;
   height: 0.75em;
-  width: 27em;
+  width: 31.5em;
 }
 
 .min-max-submit-button {
-  padding: .25em 7em .25em 7em;
+  padding: .25em 8.75em .25em 8.75em;
   /*width: 12em;*/
 }
  
@@ -121,8 +121,17 @@ header {
   width: 9em;
 }
 
-.output-number {
+#output-number {
   color: #ed458b;
+  display: block;
+  font-size: 13em;
+  line-height: 1em;
+  margin: auto;
+  text-align: center; 
+}
+
+.wrong-number {
+  color: #d0d2d3;
   display: block;
   font-size: 13em;
   line-height: 1em;
