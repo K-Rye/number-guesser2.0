@@ -18,7 +18,6 @@ header {
   color: #ed458b;
   font-weight: 700;
   font-size: 3em;
-  letter-spacing: 
   padding: .15em;
 }
 
@@ -62,7 +61,6 @@ header {
 
 .min-max-submit-button {
   padding: .25em 8.75em .25em 8.75em;
-  /*width: 12em;*/
 }
  
 .enter-your-guess {
@@ -143,9 +141,6 @@ header {
   color: #404041;
   display: block;
   font-size: 2em;
-  /*margin: auto;*/
- /* padding: 0em 1em 1em 1.75em;
-  width: 7.5em;*/
   text-align: center;
 }
 
